@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* gets rid of all bullet points on all lists on the whole webpage*/
+li {
+  list-style: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* header is the container for all the header items*/
+.header {
+  background-color: #6D351A;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: whitesmoke
+}
+/* I only used <a> on the header and footer text, so I use this to remove the blue hyperlink color*/
+a{
+  color: inherit;
+}
+
+.logo {
+  height: 80px;
+  width: 90px;
+  margin: 20px;
+}
+
+li > * {
+  text-decoration: none;
+}
+
+.title {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*this actually refers to the list within the <nav>*/
+.nav {
+  list-style-type: none;
+  text-align: end;
+}
+
+.main {
+  /* backup color in case image cannot load*/
+  background-image: url(/static/images/Drink.JPG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #EDE3D7;
+  /* calc used because I want "main" to be the exact height of the viewport, minus the height of the header*/
+  height: calc(100vh - 100px);
+  font-size: 170px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  /* This flex is just used to centre the text*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2F2F2F;
+
+}
+
+/*effects both the boxes that contain the menus */
+.menu {
+  min-width: 500px;
+  min-height: calc(100vh - 100px);
+  /* this makes it so the menus fill up the whole width*/
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+/* these also relate to the boxes that contain the menus, but split into left and right*/
+.menu1 {
+  background-color: #F2E5D9;
+  border: #2F2F2F 1px;
+  border-right: #2F2F2F solid 2px;
+}
+
+.menu2 {
+  background-color: #B79E8B;
+  border-left: #2F2F2F solid 2px;
+}
+
+/* effects the box that contains both menus*/
+.menus {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 100vw;
+  border-top: #6D351A solid 15px;
+  font-family: Montserrat;
+}
+
+.item-picture {
+  /* rounds the corners on the pictures*/
+  border-radius: 10px;
+  /*gives a slight shadow underneath the pictures*/
+  box-shadow: 2px 2px;
+}
+
+/*regarding the words "lunch" and "dinner" at the top of the menus*/
+.menu-title {;
+  max-width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 50px;
+  box-shadow: #2F2F2F 2px 2px;
+}
+
+/* Relates to each block of item-title item-image and item-description*/
+.menu-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* effects the item names text*/
+.item-name {
+  max-width: fit-content;
+  margin: 15px;
+  margin-top: 30px;
+  border-radius: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: #2F2F2F 2px 2px;
+}
+
+/* I added these because I decided I wanted to change the color of all of the backgrounds in my left vs my right 
+menu containers*/
+.lunch > .menu-block > h2 , .menu1 > .menu-title {
+  background-color:#B79E8B;
+}
+
+.dinner > .menu-block > h2 , .menu2 > .menu-title {
+  background-color:#EDE3D7;
+}
+
+.item-picture {
+  width: 500px;
+  height: 400px;
+  /*this cuases to object to effectivly be scropped instead of stretched when resizing*/
+  object-fit: cover;
+}
+
+/*relates to the image descriptions below the pictures of menu items*/
+.description-lunch {
+  max-width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: #2F2F2F 2px 2px;
+  background-color: #B79E8B;
+}
+
+.description-dinner {
+  background-color: #EDE3D7;
+  max-width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: #2F2F2F 2px 2px;
+}
+
+.footer {
+  background-color: #6D351A;
+  height: 80px;
+  Bottom: 0;
+  /* because I gave the footer 10px padding, I need to remove 20px from its width to stop it from going over 100% width and spawning a scroll-bar*/
+  width: calc(100% - 20px);
+  /*brings the footer forward on the z (front to back) axis, so it cant be lost behind other elements with lower priority*/
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: whitesmoke;
+}
+
+.top-button {
+  text-decoration: none;
+  font-size: 20px;
+  color: whitesmoke;
+
+  /* this makes it so that once the screen becomes small enough, the hero image text and the hero image container shrink to be more compatable with mobile devices*/
+}
+
+@media only screen and (max-width: 800px) {
+  .main {
+    height: 400px;
+    font-size: 95px;
+  }
+}
